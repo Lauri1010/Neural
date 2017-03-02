@@ -1,0 +1,434 @@
+package stockIndex;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Vector;
+import neuron.Neuron;
+import simulatedAnnealing.NeuralSimulatedAnnealing;
+import utils.ObjectCloner;
+import utils.SerializeObject;
+import utils.ErrorCalculation;
+import stockIndex.SP500Actual;
+import utils.ReadCSV;
+import supervisedLearning.BackPropagationNetwork;
+import activationFunction.ActivationBiPolar;
+import activationFunction.ActivationFunction;
+import activationFunction.ActivationGaussian;
+import activationFunction.ActivationSIN;
+import activationFunction.ActivationSigmoid;
+import activationFunction.ActivationTANH;
+
+/**
+ * @author Lauri Turunen
+ *	Predicts the S&P500 index using backpropagation. 
+ *  Uses methods from a S&P prediction program by Jeff Heaton
+ *  
+ *  The standard number of neurons: 11, 22, 1
+ *  
+ */
+
+public class StockIndexPrediction {
+	// NOTE  current prediction input size 10, output size 1
+	private static final int TRAINING_SIZE = 400;
+	/**
+	 * The number of input neurons
+	 * NOTE when predicting with real data this has to be the same as the original size
+	 * (same apples to number of hidden neurons)
+	 */
+	private static final int INPUT_SIZE = 50;
+	private static final int OUTPUT_SIZE = 1;
+	private double[][] input;
+	private double[][] ideal;
+	private int epoch=0;
+	public final static Date PREDICT_FROM = ReadCSV.parseDate("2007-01-01");
+	public final static Date LEARN_FROM = ReadCSV.parseDate("2006-02-01");
+	private SP500Actual actual;
+	BackPropagationNetwork feedForward1;
+	int cycles=11;
+	double heat=40;
+	NeuralSimulatedAnnealing anneal;
+	private Scanner scan;
+	
+	private String uInput = "";
+	TimerTask task = new TimerTask() {
+		public void run() {
+			if (uInput.equals("")) {
+				
+			}
+		}
+	};
+	
+	public boolean getInput() throws Exception {
+		Timer timer = new Timer();
+		timer.schedule(task, 10 * 1000);
+
+		System.out.println("Leaning level is good, input yet? Input in 10 seconds");
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		uInput = in.readLine();
+
+		timer.cancel();
+		
+		if(uInput.equalsIgnoreCase("yes")){
+			
+			return true;
+		}else{
+			
+			return false;
+		}
+		
+	}
+
+	public static void main(String[] args) throws Exception {
+		StockIndexPrediction si=new StockIndexPrediction();
+		if(args.length>0 && args[0].equalsIgnoreCase("full")){
+			si.run(true);
+		}
+		else{
+			si.run(false);
+		}
+	}
+	
+	public void run(boolean full) throws Exception{
+		
+		full=true;
+		
+		// Load training data..
+		this.actual = new SP500Actual(INPUT_SIZE, OUTPUT_SIZE);
+		try {
+			this.actual.load("sp500.csv", "prime.csv");
+			System.out.println("Samples read: " + this.actual.size());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		int[] hidden = new int[1];
+		hidden[0]=100;
+		ActivationFunction acFunct=new ActivationTANH();
+		//ActivationFunction acFunct=new ActivationSIN();
+		
+		
+		if(full){
+			generateTrainingSets();
+			feedForward1=new BackPropagationNetwork(INPUT_SIZE,hidden,1,acFunct,0.0002,0.0002,this.input,this.ideal,full);
+			feedForward1.setInputLocation(0);
+			trainNeuralNetwork();
+			saveNeuralNetwork();
+		}else
+		{
+			feedForward1=new BackPropagationNetwork(INPUT_SIZE,hidden,1,acFunct,0.000001,0.5,this.input,this.ideal,full);
+			feedForward1.setInputLocation(0);
+			loadNeuralNetwork();
+			display();
+		}
+		
+	}
+	/**
+	 * The train method for the stock index data. 
+	 * 
+	 * @throws Exception
+	 */
+	public void trainNeuralNetwork() throws Exception{
+
+		double lastError = Double.MAX_VALUE;
+		int lastAnneal = 0;
+		double error=0.0;
+		int i=0;
+		int h=0;
+		
+		double heat=40;
+		int cycles=50;
+		
+		/*
+		while(h<5){
+		feedForward1.iteration();
+		simulatedAnnealing();
+		h++;
+		}*/
+		int g=0;
+		
+		error=feedForward1.iteration();
+		
+		i++;
+		g++;
+		System.out.println("Iteration "+i+" Error: "+error +" ");
+
+		this.anneal=new NeuralSimulatedAnnealing(heat,2,cycles,this.feedForward1);
+		
+		this.scan=new Scanner(System.in);
+		
+		simulatedAnnealing(250,25);
+
+		do{
+				
+			error=feedForward1.iteration();
+			
+			i++;
+			g++;
+			System.out.println("Iteration "+i+" Error: "+error +" ");
+			
+			if(error>lastError){
+				feedForward1.decreaseLearningRate();
+				// lastAnneal++;
+				
+				// lastAnneal++;
+
+				// if(lastAnneal>5){
+					
+						lastAnneal=0;
+					
+						heat+=15;
+						cycles=cycles+8;
+						
+						System.out.println("Simulated Annealing, heat: "+heat+" Cycles "+cycles);
+						simulatedAnnealing(heat,cycles);
+		
+				// }
+					
+				//	int iterations=250;
+//					int index=0;
+//	
+//					while(index<iterations){
+//						
+//						error=feedForward1.iteration();
+//						
+//						i++;
+//						g++;
+//						System.out.println("Iteration "+i+" Error: "+error +" ");
+//						
+//						index++;
+//					}
+					
+//					feedForward1.setLearningRate(0.00002);
+					
+					// feedForward1.decreaseLearningRate();
+
+				// }
+			}else{
+				
+				// feedForward1.setLearningRate(0.001);
+				
+				heat=40;
+				cycles=50;
+					
+				
+				feedForward1.increaseLearningRate2(0.005);
+		
+			}
+			
+			if(g>75000){
+				g=0;
+				
+		  		System.out.println("Do you with to quit the traning process? 1=yes 2=no");
+				int t=scan.nextInt();
+				if(t==1){
+					scan.close();
+					break;
+				}
+				if(scan.next().length()>0 || scan.next().length()<0){
+					continue;
+				}
+				else{
+					continue;
+				}
+				
+				
+			}
+	
+		
+			
+			
+			/*
+			 * 
+			do{
+				
+			error=feedForward1.iteration();
+			
+			i++;
+			
+			System.out.println("Iteration "+i+" Error: "+error +" ");
+			
+			
+				if(error>lastError){
+					lastAnneal++;
+					
+					feedForward1.decreaseLearningRate();
+					feedForward1.setDefaultMomentum();
+					error=feedForward1.iteration();
+					System.out.println("Iteration "+i+" Error: "+error +" ");
+					if(lastAnneal>10){
+						simulatedAnnealing();
+						lastAnneal=0;
+					}
+					
+					if(error<lastError){
+						change=true;
+					}
+	
+				}else if(Math.abs(error-lastError)<0.0001){
+					feedForward1.increaseMomentum(0.74821);
+					lAnneal++;
+					similar++;
+					if(lAnneal>1000){
+						simulatedAnnealing();
+						lAnneal=0;
+					}
+					if(similar>7000){
+						break;
+					}
+				}
+				if(change){
+					feedForward1.setDefaultLearningRate();
+					feedForward1.setDefaultMomentum();
+					similar=0;
+					change=false;
+				}
+			
+					
+				lastError=error;
+			}while(error>0.02);
+	
+			 */
+				
+				lastError=error;
+				
+		}while(error>0.02);
+
+		System.exit(0);
+		
+	}
+	/**
+	 * Generates training sets for the neural network. The training data includes data of the percentage change of the
+	 * stock market index and interest rate. 
+	 * 
+	 * The size of the training set is defined as using the learn from variable and incrementing the 
+	 * start index. This is then used to generate eligible samples (which is training size - start index
+	 * if eligible samples is zero an earlier data is needed for learn from variable. 
+	 * factor variable is then used as the eligible samples divided by the training size. 
+	 * For the input and desired data set the factor variable is then used to create the correct 
+	 * Specified set of data
+	 * 
+	 */
+	private void generateTrainingSets() {
+		this.input = new double[TRAINING_SIZE][INPUT_SIZE * 2];
+		this.ideal = new double[TRAINING_SIZE][OUTPUT_SIZE];
+
+		// find where we are starting from
+		int startIndex = 0;
+		for (final FinancialSample sample : this.actual.getSamples()) {
+			if (sample.getDate().after(LEARN_FROM)) {
+				break;
+			}
+			startIndex++;
+		}
+
+		// create a sample factor across the training area
+		final int eligibleSamples = TRAINING_SIZE - startIndex;
+		if (eligibleSamples == 0) {
+			System.out
+					.println("Need an earlier date for LEARN_FROM or a smaller number for TRAINING_SIZE.");
+			System.exit(0);
+		}
+		final int factor = eligibleSamples / TRAINING_SIZE;
+
+		// grab the actual training data from that point
+		
+		for (int i = 0; i < TRAINING_SIZE; i++) {
+			this.actual.getInputData(startIndex + (i * factor), this.input[i]);
+			this.actual.getOutputData(startIndex + (i * factor), this.ideal[i]);
+		}
+	}
+	
+	public void saveNeuralNetwork() throws IOException {
+		SerializeObject.save("s&p500_p4.net", feedForward1.getNeurons());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void loadNeuralNetwork() throws Exception {
+		Vector<Neuron> n=(Vector<Neuron>) SerializeObject.load("s&p500_p4.net");
+		feedForward1.setNeurons(n);
+	}
+	/**
+	 * Displays the prediction by a neural network using real data. 
+	 */
+	public void display() {
+		final NumberFormat percentFormat = NumberFormat.getPercentInstance();
+		percentFormat.setMinimumFractionDigits(2);
+
+		final double[] present = new double[INPUT_SIZE * 2];
+		double[] predict = new double[OUTPUT_SIZE];
+		final double[] actualOutput = new double[OUTPUT_SIZE];
+
+		int index = 0;
+		feedForward1.setInputLocation(0);
+		double td=0.0;
+		int d=0;
+		double o[]=new double[1];
+		feedForward1.setActualDataReturn(o);
+		feedForward1.setOutputSize(OUTPUT_SIZE);
+		for (final FinancialSample sample : this.actual.getSamples()) {
+			if (sample.getDate().after(StockIndexPrediction.PREDICT_FROM)) {
+				final StringBuilder str = new StringBuilder();
+				
+				str.append(ReadCSV.displayDate(sample.getDate()));
+				str.append(":Start=");
+				str.append(sample.getAmount());
+
+				this.actual.getInputData(index - INPUT_SIZE, present);
+				this.actual.getOutputData(index - INPUT_SIZE, actualOutput);
+				
+				feedForward1.setActualDataInput(present);
+				predict=feedForward1.actualDataPrediction();
+				
+				str.append(" Actual ");
+				str.append(percentFormat.format(actualOutput[0]));
+				str.append(" Pred:  ");
+				str.append(percentFormat.format(predict[0]));
+
+				str.append(" Diff: ");			
+				d++;
+				final ErrorCalculation error = new ErrorCalculation();
+				error.updateError(predict, actualOutput);
+				double t=error.calculateRMS();
+				td+=t/predict[0];
+				str.append(percentFormat.format(error.calculateRMS()));
+				
+				System.out.println(str.toString());
+			}
+
+			index++;
+		}
+		System.out.println("The overall result deviation: "+(td/d));
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void simulatedAnnealing(double heat,int cycles) throws Exception{
+		// this.heat=this.heat*1.05;
+		//final 
+		// NeuralSimulatedAnnealing anneal=new NeuralSimulatedAnnealing(heat,2,cycles,this.feedForward1);
+		//anneal.setStartTemp(startTemp)
+		// this.feedForward1=anneal.iterateAndReturnNetwork();
+		this.anneal.setNetworkAndCopyBestSet(this.feedForward1);
+		this.anneal.setCycles(cycles);
+		this.anneal.setStartTemp(heat);
+
+		anneal.iterate();
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}

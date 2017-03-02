@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="activationFunction.ActivationBiPolar"/>
+<fullyQualifiedTypeName name="activationFunction.ActivationGaussian"/>
+<fullyQualifiedTypeName name="activationFunction.ActivationSigmoid"/>
+<fullyQualifiedTypeName name="activationFunction.ActivationTANH"/>
+<fullyQualifiedTypeName name="activationFunction.ActivationSIN"/>
+<fullyQualifiedTypeName name="supervisedLearning.BackPropagationNetwork"/>
+<fullyQualifiedTypeName name="simulatedAnnealing.NeuralSimulatedAnnealing"/>
+<fullyQualifiedTypeName name="simulatedAnnealing.LearningSystem"/>
+<fullyQualifiedTypeName name="java.util.Timer"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.util.TimerTask"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+</qualifiedTypeNameHistroy>

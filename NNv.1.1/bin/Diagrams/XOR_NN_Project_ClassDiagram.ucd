@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="XOR_NN_Project_ClassDiagram" size="1008,2116" id="supervisedLearning" metadata="uml2-1.0" initialized="true" scrolledY="54" tag="1000" key="32303037303533312D31303030204E657572616C50726F6A6563745F76302E392E382F4C61757269">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="NeuralMapping" location="437,173" size="313,171" id="neuron/NeuralMapping" runTimeClassModel="createMapping(Ljava.util.Vector;),feedForwardSetNeuralNet(Ljava.util.Vector;I[II),neuralConnect,NeuralMapping(),getNeuralConnect(),setNeuralConnect(Ljava.util.Hashtable;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="290,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="neuralConnect" id="neuron/NeuralMapping#neuralConnect"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="157,90">
+      <children xsi:type="editmodel:MethodEditModel" name="NeuralMapping" id="neuron/NeuralMapping#NeuralMapping()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createMapping" id="neuron/NeuralMapping#createMapping(Ljava.util.Vector;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="feedForwardSetNeuralNet" id="neuron/NeuralMapping#feedForwardSetNeuralNet(Ljava.util.Vector;I[II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setNeuralConnect" id="neuron/NeuralMapping#setNeuralConnect(Ljava.util.Hashtable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNeuralConnect" id="neuron/NeuralMapping#getNeuralConnect()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0" name="BackPropagationNetwork" location="45,45" size="203,1003" id="supervisedLearning/BackPropagationNetwork" runTimeClassModel="outputNeuronsToConsole(),printBestResult(),getBestErrorRate(),setHiddenDelta(Lneuron.Connection;Lneuron.Neuron;),setInputLocation(I),totalError,getActualDataInput(),bestErrorRate,getTotalError(),setOutputErrorDelta(Lneuron.Connection;Lneuron.Neuron;),iteration(),actualDataReturn,setTotalError(D),backPropagate(),inputPatterns(),outputSize,setActualDataInput([D),dataLocation,createNetwork(),setBestErrorRate(D),neurons,i3,i2,testBestSet(),i1,t3,t2,t1,getNeurons(),getActualDataReturn(),bestSet,Learn(),getOutputSize(),run(),actualDataInput,iterate(),feedForward(Z),setEpoch(I),inputSinglePattern([D),manageResults(),setNeurons(Ljava.util.Vector;),epoch,actualDataPrediction(),BackPropagationNetwork(I[IILactivationFunction.ActivationFunction;DD[[D[[D),printResult(),setActualDataReturn([D),setOutputSize(I),setError(Lneuron.Neuron;),p,getInputLocation()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="171,324">
+      <children xsi:type="editmodel:AttributeEditModel" name="epoch" id="supervisedLearning/BackPropagationNetwork#epoch"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="i1" id="supervisedLearning/BackPropagationNetwork#i1"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="i2" id="supervisedLearning/BackPropagationNetwork#i2"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="i3" id="supervisedLearning/BackPropagationNetwork#i3"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataLocation" id="supervisedLearning/BackPropagationNetwork#dataLocation"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="p" location="1,123" id="supervisedLearning/BackPropagationNetwork#p"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="t1" id="supervisedLearning/BackPropagationNetwork#t1"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="t2" id="supervisedLearning/BackPropagationNetwork#t2"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="t3" id="supervisedLearning/BackPropagationNetwork#t3"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bestSet" id="supervisedLearning/BackPropagationNetwork#bestSet"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="currentError" id="supervisedLearning/BackPropagationNetwork#currentError"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="totalError" id="supervisedLearning/BackPropagationNetwork#totalError"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bestErrorRate" id="supervisedLearning/BackPropagationNetwork#bestErrorRate"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="actualDataReturn" id="supervisedLearning/BackPropagationNetwork#actualDataReturn"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="neurons" id="supervisedLearning/BackPropagationNetwork#neurons"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="outputSize" id="supervisedLearning/BackPropagationNetwork#outputSize"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="actualDataInput" id="supervisedLearning/BackPropagationNetwork#actualDataInput"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="152,684">
+      <children xsi:type="editmodel:MethodEditModel" name="BackPropagationNetwork" id="supervisedLearning/BackPropagationNetwork#BackPropagationNetwork(I[IILactivationFunction.ActivationFunction;DD[[D[[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="backPropagate" id="supervisedLearning/BackPropagationNetwork#backPropagate()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createNetwork" id="supervisedLearning/BackPropagationNetwork#createNetwork()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="inputPatterns" id="supervisedLearning/BackPropagationNetwork#inputPatterns()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="manageResults" id="supervisedLearning/BackPropagationNetwork#manageResults()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="outputNeuronsToConsole" id="supervisedLearning/BackPropagationNetwork#outputNeuronsToConsole()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="printBestResult" id="supervisedLearning/BackPropagationNetwork#printBestResult()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setError" id="supervisedLearning/BackPropagationNetwork#setError(Lneuron.Neuron;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setHiddenDelta" id="supervisedLearning/BackPropagationNetwork#setHiddenDelta(Lneuron.Connection;Lneuron.Neuron;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setOutputErrorDelta" id="supervisedLearning/BackPropagationNetwork#setOutputErrorDelta(Lneuron.Connection;Lneuron.Neuron;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getInputLocation" id="supervisedLearning/BackPropagationNetwork#getInputLocation()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setInputLocation" id="supervisedLearning/BackPropagationNetwork#setInputLocation(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTotalError" id="supervisedLearning/BackPropagationNetwork#getTotalError()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="run" id="supervisedLearning/BackPropagationNetwork#run()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="iteration" id="supervisedLearning/BackPropagationNetwork#iteration()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="actualDataPrediction" id="supervisedLearning/BackPropagationNetwork#actualDataPrediction()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="inputSinglePattern" id="supervisedLearning/BackPropagationNetwork#inputSinglePattern([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setTotalError" id="supervisedLearning/BackPropagationNetwork#setTotalError(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getActualDataReturn" id="supervisedLearning/BackPropagationNetwork#getActualDataReturn()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="printResult" id="supervisedLearning/BackPropagationNetwork#printResult()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="iterate" id="supervisedLearning/BackPropagationNetwork#iterate()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setActualDataReturn" id="supervisedLearning/BackPropagationNetwork#setActualDataReturn([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setNeurons" id="supervisedLearning/BackPropagationNetwork#setNeurons(Ljava.util.Vector;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="feedForward" id="supervisedLearning/BackPropagationNetwork#feedForward(Z)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBestErrorRate" id="supervisedLearning/BackPropagationNetwork#setBestErrorRate(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="testBestSet" id="supervisedLearning/BackPropagationNetwork#testBestSet()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setEpoch" id="supervisedLearning/BackPropagationNetwork#setEpoch(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNeurons" id="supervisedLearning/BackPropagationNetwork#getNeurons()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Learn" id="supervisedLearning/BackPropagationNetwork#Learn()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBestErrorRate" id="supervisedLearning/BackPropagationNetwork#getBestErrorRate()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getActualDataInput" id="supervisedLearning/BackPropagationNetwork#getActualDataInput()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputSize" id="supervisedLearning/BackPropagationNetwork#getOutputSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setActualDataInput" id="supervisedLearning/BackPropagationNetwork#setActualDataInput([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setOutputSize" id="supervisedLearning/BackPropagationNetwork#setOutputSize(I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="supervisedLearning/BackPropagationNetwork->Standard::Derive" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Derive, Import, Call»" size="156,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="203,213" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="23,85"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="supervisedLearning/BackPropagationNetwork->Standard::Derive" source="//@children.1" target="//@children.3" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Derive, Import, Call»" size="156,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="203,429" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,301"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="supervisedLearning/BackPropagationNetwork->Standard::Derive" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.2/@children.2" label="//@children.1/@sourceConnections.2/@children.0" sourceEnd="//@children.1/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive, Import, Call»" size="101,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="203,877" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,173"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0 //@children.1/@sourceConnections.2" name="Connection" location="330,1050" size="172,981" id="neuron/Connection" runTimeClassModel="setWResult(D),getWeight(),setOutputsTo(I),setEi(D),setSum(D),setMomentum(D),sumError(D),delta,momentum,setLearningRate(D),intitalizePreviousWeights(),calculateWeightedInput(),getThisNeuron(),clearError(),setpWeight(D),getMomentum(),setFrom(I),input,passOutput(),getDelta(),setDelta(D),setOutput(D),output,getNeuron(),getOutputsTo(),setNeuron(Lneuron.Neuron;),setThisNeuron(I),setWeight(D),learningRate,sum,setError(D),from,getSum(),toString(),thisNeuron,getError(),getFrom(),getpWeight(),getWResult(),error,getEi(),pWeight,neuron,getInput(),getLearningRate(),adjustWeights(DD),ei,wResult,Connection(I),setInput(D),getOutput()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="117,234">
+      <children xsi:type="editmodel:AttributeEditModel" name="delta" id="neuron/Connection#delta"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="ei" id="neuron/Connection#ei"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="error" id="neuron/Connection#error"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="from" id="neuron/Connection#from"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="input" id="neuron/Connection#input"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="learningRate" id="neuron/Connection#learningRate"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="momentum" id="neuron/Connection#momentum"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="output" id="neuron/Connection#output"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sum" id="neuron/Connection#sum"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="thisNeuron" location="19,204" id="neuron/Connection#thisNeuron"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="wResult" id="neuron/Connection#wResult"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pWeight" id="neuron/Connection#pWeight"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="neuron" id="neuron/Connection#neuron"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="149,684">
+      <children xsi:type="editmodel:MethodEditModel" name="Connection" id="neuron/Connection#Connection(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="adjustWeights" id="neuron/Connection#adjustWeights(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="calculateWeightedInput" id="neuron/Connection#calculateWeightedInput()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="clearError" id="neuron/Connection#clearError()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputsTo" id="neuron/Connection#getOutputsTo()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWeight" id="neuron/Connection#getWeight()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="passOutput" id="neuron/Connection#passOutput()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setOutputsTo" id="neuron/Connection#setOutputsTo(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setWeight" id="neuron/Connection#setWeight(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="sumError" id="neuron/Connection#sumError(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="neuron/Connection#toString()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWResult" id="neuron/Connection#getWResult()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setThisNeuron" id="neuron/Connection#setThisNeuron(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMomentum" id="neuron/Connection#getMomentum()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFrom" id="neuron/Connection#getFrom()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setOutput" id="neuron/Connection#setOutput(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSum" id="neuron/Connection#getSum()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLearningRate" id="neuron/Connection#getLearningRate()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setError" id="neuron/Connection#setError(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="intitalizePreviousWeights" id="neuron/Connection#intitalizePreviousWeights()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setNeuron" id="neuron/Connection#setNeuron(Lneuron.Neuron;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getError" id="neuron/Connection#getError()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setWResult" id="neuron/Connection#setWResult(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setpWeight" id="neuron/Connection#setpWeight(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setInput" id="neuron/Connection#setInput(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNeuron" id="neuron/Connection#getNeuron()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDelta" id="neuron/Connection#getDelta()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getInput" id="neuron/Connection#getInput()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getThisNeuron" id="neuron/Connection#getThisNeuron()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDelta" id="neuron/Connection#setDelta(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSum" id="neuron/Connection#setSum(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setFrom" id="neuron/Connection#setFrom(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutput" id="neuron/Connection#getOutput()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setLearningRate" id="neuron/Connection#setLearningRate(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEi" id="neuron/Connection#getEi()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getpWeight" id="neuron/Connection#getpWeight()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setMomentum" id="neuron/Connection#setMomentum(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setEi" id="neuron/Connection#setEi(D)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="neuron/Connection-Soyatec::Import->neuron/Neuron" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="172,281" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,518"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="neuron/Map&lt;-neuron/Connection" source="//@children.2" target="//@children.5" targetEnd="//@children.2/@sourceConnections.1/@children.1" sourceEnd="//@children.2/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="172,123" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,138"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="neuron/Connection-Standard::Derive->neuron/Map" source="//@children.2" target="//@children.5" targetEnd="//@children.2/@sourceConnections.2/@children.2" label="//@children.2/@sourceConnections.2/@children.0" sourceEnd="//@children.2/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="172,143" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,142"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.1 //@children.2/@sourceConnections.0" name="Neuron" location="765,173" size="179,603" id="neuron/Neuron" runTimeClassModel="setC(Lneuron.Connection;),getCounter(),getActivationOutput(),setError(D),toString(),counter(),id,setCounter(I),getError(),getCList2(),cList2,error,c,counter,layer,activationOutput,getC(),setCList2([Lneuron.Connection;),setActivationOutputSum(D),manageOutput(LactivationFunction.ActivationFunction;),setId(I),activationOutputSum,getInput(),input,getId(),getLayer(),Neuron(),getActivationOutputSum(),setLayer(I),setActivationOutput(D),Neuron(I),setInput(D)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="156,162">
+      <children xsi:type="editmodel:AttributeEditModel" name="activationOutput" id="neuron/Neuron#activationOutput"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="counter" id="neuron/Neuron#counter"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="error" id="neuron/Neuron#error"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="id" id="neuron/Neuron#id"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="input" id="neuron/Neuron#input"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="layer" id="neuron/Neuron#layer"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="c" id="neuron/Neuron#c"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="activationOutputSum" id="neuron/Neuron#activationOutputSum"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="cList2" id="neuron/Neuron#cList2"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="146,378">
+      <children xsi:type="editmodel:MethodEditModel" name="Neuron" id="neuron/Neuron#Neuron(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Neuron" id="neuron/Neuron#Neuron()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="counter" id="neuron/Neuron#counter()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="manageOutput" id="neuron/Neuron#manageOutput(LactivationFunction.ActivationFunction;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="neuron/Neuron#toString()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setActivationOutput" id="neuron/Neuron#setActivationOutput(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCList2" id="neuron/Neuron#getCList2()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setC" id="neuron/Neuron#setC(Lneuron.Connection;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCList2" id="neuron/Neuron#setCList2([Lneuron.Connection;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getInput" id="neuron/Neuron#getInput()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getActivationOutputSum" id="neuron/Neuron#getActivationOutputSum()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getId" id="neuron/Neuron#getId()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setActivationOutputSum" id="neuron/Neuron#setActivationOutputSum(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLayer" id="neuron/Neuron#getLayer()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setError" id="neuron/Neuron#setError(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setLayer" id="neuron/Neuron#setLayer(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getActivationOutput" id="neuron/Neuron#getActivationOutput()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getError" id="neuron/Neuron#getError()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getC" id="neuron/Neuron#getC()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setInput" id="neuron/Neuron#setInput(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setId" id="neuron/Neuron#setId(I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" source="//@children.3" target="//@children.2" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,498" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="172,261"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="XOR" location="285,659" size="174,117" id="xor/XOR" runTimeClassModel="main([Ljava.lang.String;),xOR_INPUT,xOR_IDEAL">
+    <children xsi:type="editmodel:CompartmentEditModel" size="151,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="xOR_IDEAL" id="xor/XOR#xOR_IDEAL"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="xOR_INPUT" id="xor/XOR#xOR_INPUT"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="52,18">
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="xor/XOR#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" source="//@children.4" target="//@children.1" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,58" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="203,672"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.1 //@children.2/@sourceConnections.2" name="Map" location="749,1035" size="123,261" id="neuron/Map" runTimeClassModel="Map(),thisNeuron,getOutputsTo(),weight,setThisNeuron(I),setWeight(D),getWeight(),setOutputsTo(I),outputsTo,getThisNeuron(),toString()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="90,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="outputsTo" id="neuron/Map#outputsTo"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="thisNeuron" id="neuron/Map#thisNeuron"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="weight" id="neuron/Map#weight"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="100,144">
+      <children xsi:type="editmodel:MethodEditModel" name="Map" id="neuron/Map#Map()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="neuron/Map#toString()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setWeight" id="neuron/Map#setWeight(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getThisNeuron" id="neuron/Map#getThisNeuron()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputsTo" id="neuron/Map#getOutputsTo()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setThisNeuron" id="neuron/Map#setThisNeuron(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWeight" id="neuron/Map#getWeight()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setOutputsTo" id="neuron/Map#setOutputsTo(I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=7;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
