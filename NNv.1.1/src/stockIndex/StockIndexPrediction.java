@@ -28,7 +28,6 @@ import activationFunction.ActivationTANH;
 /**
  * @author Lauri Turunen
  *	Predicts the S&P500 index using backpropagation. 
- *  Uses methods from a S&P prediction program by Jeff Heaton
  *  
  *  The standard number of neurons: 11, 22, 1
  *  
@@ -358,6 +357,7 @@ public class StockIndexPrediction {
 	}
 	/**
 	 * Displays the prediction by a neural network using real data. 
+	 * author Jeff Heaton, with some edits for the new type of methods set here. 
 	 */
 	public void display() {
 		final NumberFormat percentFormat = NumberFormat.getPercentInstance();
